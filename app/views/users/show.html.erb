@@ -1,0 +1,48 @@
+<div class="row text-center">
+  <% if flash[:notice] %>
+    <h4 class="warning-notice"><%= flash[:notice] %></h4>
+  <% end %>
+
+  <div class="col-xs-6 col-md-4">
+    <h3>Create a New Mumble</h3>
+
+    <% if @mumble && @mumble.errors %>
+      <p>Your mumble failed:</p>
+      <ul class="error-messages">
+        <% @mumble.errors.full_messages.each do |e| %>
+          <li class="warning-notice"><%= e %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="mumble mumble-new">
+      <%= form_for [@user, Mumble.new] do |f| %>
+        <div class="field form-group">
+          <%= f.label :text %>
+          <%= f.text_area :text, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :image_uri %>
+          <%= f.text_field :image_uri, class: "form-control" %>
+        </div>
+        <div class="field form-group">
+          <%= f.label :tags %>
+          <%= f.text_field :tags, class: "form-control" %>
+        </div>
+
+        <%= hidden_field_tag "redirect", user_path(@user) %>
+
+        <div class="actions"><%= f.submit "Share", class: "btn btn-primary" %></div>
+      <% end %>
+    </div> <!-- mumble mumble-new -->
+  </div>
+
+  <div class="col-xs-6 col-md-8">
+    <h3>Recent Mumbles</h3>
+    <% @user.mumbles.take(10).each do |mumble| %>
+      <div class="col-md-6">
+          <%= render 'mumbles/mumble', mumble: mumble %>
+      </div>
+    <% end %>
+  </div>
+</div>

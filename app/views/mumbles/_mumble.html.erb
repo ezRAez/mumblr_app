@@ -1,0 +1,16 @@
+<div class="mumble mumble-new">
+  <%= link_to(params[:action] == "show" ? mumble.image_uri : mumble_path(mumble)) do %>
+    <%= image_tag(mumble.image_uri, class: "mumble-pic") if mumble.has_image? %>
+  <% end %>
+  <%= link_to mumble_path(mumble), class: "mumble-link" do %>
+    <p><%= raw(mumble.text) %></p>
+    <p><span class="tags"><%= mumble.tags %></span></p>
+  <% end %>
+
+  <p class="mumble-data">
+    Posted <%= mumble.formatted_time %> by
+    <%= link_to mumble.user.handle, user_mumbles_path(mumble.user) %>
+    <%= image_tag mumble.user.profile_image_uri, width: "1em", class: "img-circle mumble-thumbnail" %>
+    <%= link_to("(Delete)", mumble_path(mumble), method: :delete) if mumble.user == current_user %>
+  </p>
+</div>
