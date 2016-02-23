@@ -41,6 +41,9 @@ that your models ensure these rules when saving:
 > so um... uh... whaddoyou guys think of life?..   
 > like, it's really, um... hard? right?...
 
+## Visit It Live!
+
+**[Check it out here.][deployed]**
 
 <!-- LINKS -->
 
@@ -56,3 +59,4 @@ that your models ensure these rules when saving:
 [ar-ass]:  http://edgeguides.rubyonrails.org/association_basics.html
 [grav-doc]: https://en.gravatar.com/
 [grav-gem]: http://guides.railsgirls.com/gravatar/
+[deployed]: https://agile-earth-80325.herokuapp.com/
