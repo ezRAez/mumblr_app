@@ -144,3 +144,27 @@ g3.update created_at: g3.created_at.advance(days: -1, hours: -10)
 h1.update created_at: h1.created_at.advance(days: -1, hours: -12)
 e3.update created_at: e3.created_at.advance(days: -2, hours:  0)
 p2.update created_at: p2.created_at.advance(days: -2, hours: -2)
+
+## Create comments #####################################################
+
+Comment.create mumble: g1, user: harper,   text: ":monkey::two_hearts::goat:&:whale2:"
+Comment.create mumble: g2, user: harper,   text: "Haha this is so funny! :joy:"
+Comment.create mumble: g3, user: harper,   text: "Haha this is sooo funny! :joy:"
+Comment.create mumble: h1, user: eugenius, text: "Yummy! Great pic too."
+Comment.create mumble: h2, user: portland, text: ":heart_eyes_cat: :ramen:"
+Comment.create mumble: h2, user: eugenius, text: "Wow, where did you find this? Was it in Santa Monica??"
+Comment.create mumble: h3, user: portland, text: ":taxi: Uber me there :fork_and_knife:!"
+Comment.create mumble: p1, user: harper,   text: "A little over-the-top, hm?"
+Comment.create mumble: e1, user: harper,   text: "So beautiful! :angel: :eyes:"
+Comment.create mumble: e1, user: portland, text: "Are you coming to Portland?"
+Comment.create mumble: e1, user: eugenius, text: "Not this time. Just Seattle. :sob:"
+Comment.create mumble: e1, user: beardo,   text: "I am kind of in to beards."
+Comment.create mumble: e3, user: harper,   text: ":tropical_fish: You are an amazing photographer!"
+Comment.create mumble: e3, user: eugenius, text: "I do my best :wink: :eggplant:"
+Comment.create mumble: e5, user: harper,   text: "I :heart: the composition!"
+Comment.create mumble: b1, user: harper,   text: "You look like :santa: ... Merry Festivus!"
+Comment.create mumble: b1, user: garfield, text: "Nice beard."
+Comment.create mumble: b1, user: eugenius, text: "Nice beard!!"
+Comment.create mumble: b1, user: beardo,   text: "<img src=\"/images/seeds/beard-marcello.png\" width=\"60\">"
+Comment.create mumble: b1, user: portland, text: "Nice :neckbeard: dude."
+Comment.create mumble: b1, user: beardo,   text: "I do my best.<br><img src=\"/images/seeds/beard-hari.jpg\" width=\"60\">"

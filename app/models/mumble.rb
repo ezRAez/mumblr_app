@@ -1,5 +1,6 @@
 class Mumble < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
 
   validate :image_or_text
 
@@ -36,5 +37,13 @@ class Mumble < ActiveRecord::Base
 
   def formatted_time
     created_at.strftime("%b %-d, %Y")
+  end
+
+  def comments_count
+    @count ||= comments.count
+  end
+
+  def has_comments?
+    comments_count > 0
   end
 end
