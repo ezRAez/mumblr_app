@@ -84,7 +84,7 @@ h5 {
     left: 0;
     border: 1px solid green;
 
-    background-image: url(<%= asset_path 'frances-ha-big.jpg' %>);
+    background-image: url('/images/frances-ha-big.jpg');
     background-repeat: no-repeat;
     background-position: center -140px;
     overflow-y: hidden;

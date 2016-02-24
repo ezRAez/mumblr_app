@@ -1,12 +1,16 @@
 
-# clean out all current data
+# Clean out all current data ###########################################
+
+Comment.delete_all
 Mumble.delete_all
 User.delete_all
+
+# Create users #########################################################
 
 garfield = User.create(
   email:                 "bob.garfield@gmail.com",
   handle:                "garfield minus morality",
-  profile_image_uri:     "https://goo.gl/RhIeZE",
+  profile_image_uri:     "/images/seeds/profile-garf.jpg",
   password:              "123",
   password_confirmation: "123"
 )
@@ -19,39 +23,41 @@ harper = User.create(
 portland = User.create(
   email:                 "people-power@no-dams.org",
   handle:                "Concerned Portland Citizen",
-  profile_image_uri:     "http://goo.gl/yDGFoy",
+  profile_image_uri:     "/images/seeds/profile-bike.png",
   password:              "123",
   password_confirmation: "123"
 )
 eugenius = User.create(
   email:                 "k.eugenio+nospam@eugenius.ca",
   handle:                "eugenius",
-  profile_image_uri:     "https://goo.gl/jCXvfu",
+  profile_image_uri:     "/images/seeds/profile-eug.jpg",
   password:              "123",
   password_confirmation: "123"
 )
 beardo = User.create(
   email:                 "beardo@irony.com",
   handle:                "BE♥RDZ",
-  profile_image_uri:     "http://goo.gl/ys48dJ",
+  profile_image_uri:     "/images/seeds/profile-beardo.jpg",
   password:              "123",
   password_confirmation: "123"
 )
 
-g1 = garfield.mumbles.create(image_uri: "https://i.imgur.com/iCDtnPK.png")
-g2 = garfield.mumbles.create(image_uri: "https://i.imgur.com/uHW0npr.png")
-g3 = garfield.mumbles.create(image_uri: "https://i.imgur.com/30RHfnL.png")
+# Create mumbles / posts for the users #################################
+
+g1 = garfield.mumbles.create(image_uri: "/images/seeds/gmm-01.png")
+g2 = garfield.mumbles.create(image_uri: "/images/seeds/gmm-02.png")
+g3 = garfield.mumbles.create(image_uri: "/images/seeds/gmm-03.png")
 
 h1 = harper.mumbles.create(
-  image_uri: "http://www.lamag.com/wp-content/uploads/sites/9/2015/10/Ramen-Burrito.jpg",
+  image_uri: "/images/seeds/food-burrito.jpg",
   tags:      "#lunchtime #ramenburrito"
 )
 h2 = harper.mumbles.create(
-  image_uri: "http://www.lamag.com/wp-content/uploads/sites/9/2015/10/Bho-Kho_LittleSisterDTLA_Credit-Dan-Collopy-850x638.jpg",
+  image_uri: "/images/seeds/food-pho.jpg",
   tags:      "#bonemarrowpho #meencanta"
 )
 h3 = harper.mumbles.create(
-  image_uri: "http://www.lamag.com/wp-content/uploads/sites/9/2015/07/tacocitytitlecovertacos.jpg",
+  image_uri: "/images/seeds/food-tacos.jpg",
   tags:      "#ilovela #diversity #tacothursday"
 )
 
@@ -88,38 +94,40 @@ Concerned Portland Citizen</p>
 
 e1 = eugenius.mumbles.create(
   text:      "Clouds.",
-  image_uri: "https://i.imgur.com/K3EjYy3.jpg",
+  image_uri: "/images/seeds/eug-clouds.jpg",
   tags:      "#flight"
 )
 e2 = eugenius.mumbles.create(
   text:      "Thinking about time, and what it does to us…",
-  image_uri: "https://i.imgur.com/ooNPTeR.jpg",
+  image_uri: "/images/seeds/eug-hills.jpg",
   tags:      "#usa #longdistancedrive"
 )
 e3 = eugenius.mumbles.create(
   text:      "Sometimes I miss being a kid!",
-  image_uri: "https://i.imgur.com/gGucXiA.jpg",
+  image_uri: "/images/seeds/eug-sea.jpg",
   tags:      "#forever"
 )
 e4 = eugenius.mumbles.create(
   text:      "Just sitting around at home.",
-  image_uri: "https://i.imgur.com/rjooqF4.jpg",
+  image_uri: "/images/seeds/eug-knap.jpg",
   tags:      "#grounded #texture"
 )
 e5 = eugenius.mumbles.create(
   text:      "Old friends and monuments…",
-  image_uri: "https://i.imgur.com/PQCbWht.jpg",
+  image_uri: "/images/seeds/eug-wmata.jpg",
   tags:      "#grounded #texture"
 )
 
 b1 = beardo.mumbles.create(
-  image_uri: "https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/controllers/education/immersives/web-development-immersive/micah-rich-cc41373133ba521256a0cb757cfd6578.jpg",
+  image_uri: "/images/seeds/beard-micah.jpg",
   tags:      "#nicebeard"
 )
 b2 = beardo.mumbles.create(
-  image_uri: "https://ga-core.s3.amazonaws.com/production/uploads/instructor/image/1679/andrew_madden.jpg",
+  image_uri: "/images/seeds/beard-andrew.jpg",
   tags:      "#nicebeard"
 )
+
+## Set created at datetimes for ordering... ############################
 
 h2.update created_at: h2.created_at.advance(days:  0, hours: -2)
 e2.update created_at: e2.created_at.advance(days:  0, hours: -4)

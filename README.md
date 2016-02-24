@@ -1,6 +1,6 @@
 # Mumblr
 
-![Two young people think](app/assets/images/mumble-one.png)
+![Two young people think](public/images/readme/mumble-one.png)
 
 > so, like, are you in to *of montreal*? i saw them at a   
 > really small venue in madison back in the early aughts…
@@ -24,7 +24,7 @@ forbid they use correct spelling. Each of their posts is called a
 Therefore the two resources our website works with are `users` and
 `mumbles`. The ERD looks like:
 
-![Mumble ERD](app/assets/images/mumbler-erd.png)
+![Mumble ERD](public/images/readme/mumbler-erd.png)
 
 We also know how to [add validations to our models][ar-val], and how to 
 [set default values in our ActiveRecord migrations][ar-mig]. Make sure 
@@ -36,7 +36,7 @@ that your models ensure these rules when saving:
    profile image](assets/default-profile-image.jpg)
 - `Mumble`: `likes` defaults to zero
 
-![Cool kids hang out sadly](app/assets/images/mumble-two.png)
+![Cool kids hang out sadly](public/images/readme/mumble-two.png)
 
 > so um... uh... whaddoyou guys think of life?..   
 > like, it's really, um... hard? right?...
