@@ -31,6 +31,8 @@ gem 'bootstrap_form'
 
 gem 'gravtastic'
 
+gem 'gemoji'
+
 group :development, :test do
   gem 'pry-rails'
 
