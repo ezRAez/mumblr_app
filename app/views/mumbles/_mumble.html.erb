@@ -3,8 +3,12 @@
     <%= image_tag(mumble.image_uri, class: "mumble-pic") if mumble.has_image? %>
   <% end %>
   <%= link_to mumble_path(mumble), class: "mumble-link" do %>
-    <p><%= raw(mumble.text) %></p>
-    <p><span class="tags"><%= mumble.tags %></span></p>
+    <% if mumble.text.present? %>
+      <p><%= raw(mumble.text) %></p>
+    <% end %>
+    <% if mumble.tags.present? %>
+      <p><span class="tags"><%= mumble.tags %></span></p>
+    <% end %>
   <% end %>
 
   <p class="mumble-data">
@@ -13,4 +17,28 @@
     <%= image_tag mumble.user.profile_image_uri, width: "1em", class: "img-circle mumble-thumbnail" %>
     <%= link_to("(Delete)", mumble_path(mumble), method: :delete) if mumble.user == current_user %>
   </p>
+
+  <% if mumble.has_comments? %>
+    <p class="mumble-data">
+      <%= link_to pluralize(mumble.comments_count, "Comment"), mumble_path(mumble), class: "mumble-link" %>
+    </p>
+  <% end %>
 </div>
+
+<!-- RENDER OUT ANY COMMENTS WHEN ON THE MUMBLE SHOW PAGE -->
+<% if mumble.has_comments? && params[:controller] == "mumbles" && params[:action] == "show" %>
+  <%= render "mumbles/comments", mumble: mumble %>
+<% end %>
+
+<!-- SHOW NEW COMMENT FORM WHEN ON THE MUMBLE SHOW PAGE AND LOGGED IN -->
+<% if logged_in? && params[:controller] == "mumbles" && params[:action] == "show" %>
+  <div class="comment comment-new">
+    <h4>Comment:</h4>
+    <%= form_for [@mumble, Comment.new] do |f| %>
+      <div class="field form-group">
+        <%= f.text_area :text, class: "form-control" %>
+      </div>
+      <div class="actions"><%= f.submit "Add", class: "btn btn-primary" %></div>
+    <% end %>
+  </div>
+<% end %>

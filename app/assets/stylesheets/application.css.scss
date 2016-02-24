@@ -24,6 +24,7 @@ $mumblr-violet:       #382ca3;
 $mumblr-violet-light: #5249c0;
 $mumblr-violet-dark:  #30249a;
 
+$mumblr-darkgray: #87919D;
 $mumblr-gray: #95A0AD;
 $light-gray:  #DDD;
 
@@ -165,13 +166,15 @@ h5 {
   display: inline-block;
 }
 
-.mumble-container {
+.mumble-container,
+.comment-container {
   max-width: 500px;
   margin: auto auto;
 }
 
 /* Mumbles */
-.mumble {
+.mumble,
+.comment {
   border: 1px solid $mumblr-gray;
   // border-radius:
   background-color: $white;
@@ -184,7 +187,8 @@ h5 {
   margin-bottom: 1em;
 }
 
-.mumble-data {
+.mumble-data,
+.comment-data {
   font-size: 10px;
   font-family: Arial, san-serif;
   text-transform: uppercase;
@@ -193,7 +197,8 @@ h5 {
   letter-spacing: 1px;
 }
 
-.mumble-data a {
+.mumble-data a,
+.comment-data a {
   font-family: Arial, san-serif;
   color: $mumblr-violet-light;
 }
@@ -210,6 +215,13 @@ h5 {
 .mumble-link:active {
   text-decoration: none;
   color: inherit;
+}
+
+.tags {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: $mumblr-darkgray;
 }
 
 /* Forms */

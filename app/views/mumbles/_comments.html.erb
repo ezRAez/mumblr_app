@@ -1,0 +1,14 @@
+
+<% mumble.comments.order(:created_at).each do |comment| %>
+  <div class="comment">
+    <div class="comment-text">
+      <%= raw(emojify(comment.text)) %>
+    </div>
+    <p class="comment-data">
+      Posted <%= comment.formatted_time %> by
+      <%= link_to comment.user.handle, user_mumbles_path(comment.user) %>
+      <%= image_tag comment.user.profile_image_uri, width: "1em", class: "img-circle mumble-thumbnail" %>
+      <%= link_to("(Delete)", comment_path(comment), method: :delete) if comment.user == current_user || mumble.user == current_user %>
+    </p>
+  </div>
+<% end %>
